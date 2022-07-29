@@ -3,6 +3,7 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
+import axios from "axios";
 // import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
@@ -12,6 +13,13 @@ const Login = () => {
 //   const handleAuth = (details) => {
 //     token ? setToken(null) : handleLogin(details);
 //   };
+    const handlelogin = (logindata) => {
+        axios({
+          method: "post",
+            url: "https://reqres.in/api/login",
+          data: logindata
+        });
+    }
 
   return (
     <div>
