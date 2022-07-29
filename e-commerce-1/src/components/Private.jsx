@@ -1,15 +1,15 @@
-import React, { Children } from 'react'
+import React from 'react'
 import { useSelector } from "react-redux";
 import { Navigate } from 'react-router-dom';
 
-const Private = () => {
+const Private = ({children}) => {
     
-const token = useSelector(state.auth.token);
+const token = useSelector(state => state.auth.token);
 
     if (!token) {
         <Navigate to={"/login"} />
     }
-  return Children
+  return children
 }
 
 export default Private

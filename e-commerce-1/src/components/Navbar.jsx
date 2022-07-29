@@ -5,14 +5,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 
-const pages = ["Products", "Pricing", "Blog"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  
 
   return (
     <AppBar position="static">

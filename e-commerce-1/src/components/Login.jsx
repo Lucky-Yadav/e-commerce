@@ -4,48 +4,58 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loginloading, sucessLogin } from "../store/auth/action";
 // import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [pass, setpass] = useState("");
-//   const { token, handleLogin, setToken } = useContext(AuthContext);
+    const dispatch = useDispatch();
+    const [loginData, setloginData] = useState({
+        email: "",
+        password:""
+    })
 //   const handleAuth = (details) => {
 //     token ? setToken(null) : handleLogin(details);
 //   };
-    const handlelogin = (logindata) => {
+    const handlechange = (e) => {
+        const { name, value } = e.target;
+        setloginData(prev => ({
+            ...prev,
+            [name]:value
+        }))
+    }
+    const handlelogin = (loginData) => {
+        dispatch(loginloading)
         axios({
           method: "post",
             url: "https://reqres.in/api/login",
-          data: logindata
-        });
+          data: loginData
+        }).then(res => {
+            dispatch(sucessLogin(res.data.token))
+        })
     }
 
   return (
     <div>
-      <TextField
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        id="outlined-basic"
-        label="Email"
-        variant="outlined"
-      />
-      <TextField
-        value={pass}
-        onChange={(e) => setpass(e.target.value)}
-        id="outlined-basic"
-        label="pass"
-        variant="outlined"
-      />
-      <br />
+      {Object.keys(loginData).map((el) => (
+        <TextField
+          value={loginData(el)}
+          onChange={handlechange}
+          name={el}
+          id={el}
+          label="Email"
+          variant="outlined"
+        />
+      ))}
+
       <div className="button">
         <br />
         <Button
-        //   onClick={() => handleAuth({ email, password: pass })}
+            onClick={handlelogin}
           variant="contained"
           endIcon={<SendIcon />}
-              >
-                  Login
+        >
+          Login
           {/* {token ? "log out" : "log in"} */}
         </Button>
       </div>
