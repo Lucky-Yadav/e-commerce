@@ -3,15 +3,15 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import { AuthContext } from "../context/AuthContext";
+// import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setpass] = useState("");
-  const { token, handleLogin, setToken } = useContext(AuthContext);
-  const handleAuth = (details) => {
-    token ? setToken(null) : handleLogin(details);
-  };
+//   const { token, handleLogin, setToken } = useContext(AuthContext);
+//   const handleAuth = (details) => {
+//     token ? setToken(null) : handleLogin(details);
+//   };
 
   return (
     <div>
@@ -33,11 +33,12 @@ const Login = () => {
       <div className="button">
         <br />
         <Button
-          onClick={() => handleAuth({ email, password: pass })}
+        //   onClick={() => handleAuth({ email, password: pass })}
           variant="contained"
           endIcon={<SendIcon />}
-        >
-          {token ? "log out" : "log in"}
+              >
+                  Login
+          {/* {token ? "log out" : "log in"} */}
         </Button>
       </div>
     </div>
