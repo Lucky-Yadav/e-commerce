@@ -24,7 +24,7 @@ const Navbar = () => {
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             Products Pricing Blog
-            <Link to={"/"}>private route</Link>
+            <Link to={"/"}>Private Route</Link>
           </Box>
           {token ? (
             <Box

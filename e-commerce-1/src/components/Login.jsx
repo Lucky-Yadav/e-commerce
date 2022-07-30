@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { loginloading, sucessLogin } from "../store/auth/action";
+import { loginloading, sucessLogin,logoutsuccess } from "../store/auth/action";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 // import { LOGIN_LOADING } from "../store/auth/actiontype";
@@ -18,20 +18,18 @@ const token = useSelector((state) => state.auth.token);
         email: "",
         password:""
     })
-//   const handleAuth = (details) => {
-//     token ? setToken(null) : handleLogin(details);
-//   };
-  const handlechange = (e) => {
-     
+  const handlelogout = () => {
+    dispatch(logoutsuccess());
+  };
+
+  const handlechange = (e) => {     
         const { name, value } = e.target;
         setloginData(prev => ({
             ...prev,
             [name]:value
         }))
   }
-    // const handleAuth = (details) => {
-    //   token ? setToken(null) : handleLogin(details);
-    // };
+
   const handlelogin = () => {
       //  console.log(2);
         dispatch(loginloading());
