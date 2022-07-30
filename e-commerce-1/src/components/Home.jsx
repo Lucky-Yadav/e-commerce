@@ -21,13 +21,23 @@ const Home = () => {
   return (
     <div>
       {products?.map((el) => 
-        (<div className='data' key={el.id}>
-        <p> Name: {el.first_name}  {el.last_name}</p>
+      (<div className='data' key={el.id}>
+        <div className="flex">
+          <div className="div">
+            <p> Name: {el.first_name}  {el.last_name}</p>
         <p>Email: {el.email} </p>
-        <p>Car: {el.car} </p>
+          </div>
+          <div className="div">
+            <p>Car: {el.car} </p>
         <p>Model {el.model} </p>
-        <p>year {el.year} </p>
+          </div>
+          <div className="div">
+            <p>year {el.year} </p>
         <p>Manufactured in: {el.manufactured} </p>
+          </div>
+        </div>   
+        
+        
         </div>)
       )}
     </div>
