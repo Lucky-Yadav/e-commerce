@@ -3,45 +3,30 @@ import React, { useEffect, useState } from 'react'
 // import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [products, setproducts] = useState({
-    loading: false,
-    error: false,
-    data: []
-  })
+  const [products, setproducts] = useState([])
 
   useEffect(() => {
-    setproducts((prev) => ({
-      ...prev,
-      loading: true
-    }));
     axios({
       method: "get",
       url: "http://localhost:4000/products",
     })
       .then((res) =>
-        setproducts((prev) => ({
-          ...prev,
-          loading: false,
-          error: false,
-          data: res.data
-        }))
+        setproducts(res.data)
       )
       .catch((err) =>
-        setproducts((prev) => ({
-          ...prev,
-          loading: false,
-          error: true
-        }))
+        {console.log(err);}
       );
   }, [])
     
   return (
     <div>
-      {products.map(el => <div key={el.id}>
-        
-      </div>)}
+      {products?.map((el) => 
+        (<div key={el.id}>
+        <p> Name: {el.first_name}  { el.last_name}</p>
+        </div>)
+      )}
     </div>
-  )
+  );
 }
 
 export default Home
