@@ -27,11 +27,7 @@ export const reducer = (state = init, {type, payload}) => {
                 error: true
             }
         case LOGOUT_SUCCESS :
-            return {
-                ...state,
-                loading: false,
-                error: true
-            }
+            return init
     
         default:
             return state

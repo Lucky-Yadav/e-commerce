@@ -5,13 +5,19 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { logoutsuccess } from "../store/auth/action";
 
 
 const Navbar = () => {
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
     
-const token = useSelector((state) => state.auth.token);
-
+  const token = useSelector((state) => state.auth.token);
+  
+    const dispatch = useDispatch();
+  const handlelogout = () => {
+    dispatch(logoutsuccess());
+  }
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -21,7 +27,11 @@ const token = useSelector((state) => state.auth.token);
             <Link to={"/"}>private route</Link>
           </Box>
           {token ? (
-            <Box style={{ cursor: "pointer" }} sx={{ flexGrow: 0 }}>
+            <Box
+              onClick={handlelogout}
+              style={{ cursor: "pointer" }}
+              sx={{ flexGrow: 0 }}
+            >
               logout
             </Box>
           ) : (
