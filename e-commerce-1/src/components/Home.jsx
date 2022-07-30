@@ -36,7 +36,11 @@ const Home = () => {
   }, [])
     
   return (
-    <div>Home data</div>
+    <div>
+      {products.map(el => <div key={el.id}>
+        
+      </div>)}
+    </div>
   )
 }
 
