@@ -21,8 +21,13 @@ const Home = () => {
   return (
     <div>
       {products?.map((el) => 
-        (<div key={el.id}>
-        <p> Name: {el.first_name}  { el.last_name}</p>
+        (<div className='data' key={el.id}>
+        <p> Name: {el.first_name}  {el.last_name}</p>
+        <p>Email: {el.email} </p>
+        <p>Car: {el.car} </p>
+        <p>Model {el.model} </p>
+        <p>year {el.year} </p>
+        <p>Manufactured in: {el.manufactured} </p>
         </div>)
       )}
     </div>
