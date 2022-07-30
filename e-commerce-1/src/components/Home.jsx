@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const Home = () => {
     
   return (
-    <div>Home</div>
+    <div>Home data</div>
   )
 }
 

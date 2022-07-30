@@ -4,12 +4,13 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  
+  // const [anchorElNav, setAnchorElNav] = React.useState(null);
+    
+const token = useSelector((state) => state.auth.token);
 
   return (
     <AppBar position="static">
@@ -17,12 +18,19 @@ const Navbar = () => {
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             Products Pricing Blog
+            <Link to={"/"}>private route</Link>
           </Box>
-          <Link to="/login">
+          {token ? (
             <Box style={{ cursor: "pointer" }} sx={{ flexGrow: 0 }}>
-              Login
+              logout
             </Box>
-          </Link>
+          ) : (
+            <Link to="/login">
+              <Box style={{ cursor: "pointer" }} sx={{ flexGrow: 0 }}>
+                Login
+              </Box>
+            </Link>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
