@@ -39,7 +39,6 @@ const token = useSelector((state) => state.auth.token);
           data: loginData
         }).then(res => {
           dispatch(sucessLogin(res.data.token))
-           console.log(4);
         })
   }
   if (token) {
