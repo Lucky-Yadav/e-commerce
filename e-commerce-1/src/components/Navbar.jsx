@@ -37,7 +37,7 @@ const Navbar = () => {
           ) : (
             <Link to="/login">
               <Box style={{ cursor: "pointer" }} sx={{ flexGrow: 0 }}>
-                Login
+                Sign
               </Box>
             </Link>
           )}
