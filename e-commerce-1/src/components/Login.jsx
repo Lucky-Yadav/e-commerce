@@ -45,7 +45,6 @@ const token = useSelector((state) => state.auth.token);
   if (token) {
     return <Navigate to={"/"}/>
   }
-
   return (
     <div>
       <div className="div">
