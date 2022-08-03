@@ -8,16 +8,15 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logoutsuccess } from "../store/auth/action";
 
-
 const Navbar = () => {
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
-    
+
   const token = useSelector((state) => state.auth.token);
-  
-    const dispatch = useDispatch();
+
+  const dispatch = useDispatch();
   const handlelogout = () => {
     dispatch(logoutsuccess());
-  }
+  };
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
