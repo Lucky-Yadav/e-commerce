@@ -32,7 +32,7 @@ const Navbar = () => {
               style={{ cursor: "pointer" }}
               sx={{ flexGrow: 0 }}
             >
-              logout
+              
             </Box>
           ) : (
             <Link to="/login">
